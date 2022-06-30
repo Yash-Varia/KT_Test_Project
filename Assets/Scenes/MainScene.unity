@@ -253,7 +253,7 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -295,7 +295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.18732336, y: -0.524089, z: 0.11940676, w: 0.8221817}
-  m_LocalPosition: {x: 30.58, y: 8.17, z: -12.63}
+  m_LocalPosition: {x: 30.91, y: 9.93, z: -16.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -328,3 +328,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb49c797e1118d4dbf5cadc54091d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PrimitiveCubePrefab: {fileID: 2738178392638944090, guid: af371b3191fa6b7419dc968b7111d45d, type: 3}
+  PrimitiveSpherePrefab: {fileID: 3508998729822394051, guid: a9ea516058eec2d42845463da71902c1, type: 3}
