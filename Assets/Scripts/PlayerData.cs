@@ -19,7 +19,7 @@ public class ObjectFields
     public int color1;
     public int color2;
     public int color3;
-    public int transpoarency;
+    public int transparency;
     public string t_messase;
     public int param1;
     public int param2;

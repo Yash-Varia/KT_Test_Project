@@ -12,7 +12,7 @@ public class ObjectManager : MonoBehaviour
 
         SetPosition(currentObject, myObject);
         SetScale(currentObject, myObject);
-        Setcolor(currentObject, myObject);
+        SetColor(currentObject, myObject);
     }
 
     public PrimitiveType GetObjectType(string myType)
@@ -32,11 +32,26 @@ public class ObjectManager : MonoBehaviour
         currentObject.transform.position = new Vector3(myObject.x, myObject.y, myObject.z);
     }
 
-    private void Setcolor(GameObject currentObject, ObjectFields myObject)
+    private void SetColor(GameObject currentObject, ObjectFields myObject)
     {
         MeshRenderer myRenderer = currentObject.GetComponent<MeshRenderer>();
-        Color myColor = new Color(myObject.color1, myObject.color2, myObject.color3, myObject.transpoarency);
-        myRenderer.material.color = myColor;
+
+        float alpha = Mathf.InverseLerp(0f, 255f, myObject.transparency);
+
+        Material mat = new Material(Shader.Find("Standard"));
+        mat.SetColor("_Color",Color.clear);
+        mat.SetColor("_Color", new Color(myObject.color1, myObject.color2, myObject.color3, alpha));
+
+        mat.SetFloat("_Mode", 3);
+        mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        mat.EnableKeyword("_ALPHABLEND_ON");
+        mat.renderQueue = 3000;
+        mat.SetInt("_ZWrite", 0);
+        mat.DisableKeyword("_ALPHATEST_ON");
+        mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+
+        myRenderer.material = mat;
     }
 
     private void SetScale(GameObject currentObject, ObjectFields myObject)
