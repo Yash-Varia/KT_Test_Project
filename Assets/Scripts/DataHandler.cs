@@ -15,6 +15,8 @@ public class DataHandler : MonoBehaviour
         StartCoroutine(GetTextWithUWR());
     }
 
+
+    // Make connection and GET JSON Data
     IEnumerator GetTextWithUWR()
     {  
         UnityWebRequest request = UnityWebRequest.Get("https://dev.wikibedtimestories.com/webservices/ARIES/api/get_all_game_Char.php?page_size=4");
@@ -31,6 +33,7 @@ public class DataHandler : MonoBehaviour
         }
     }
 
+    //Convert the JSON data into C# class and call SpawnObject for each object
     public void ProcessJsonData(string newJsonData)
     {
         playerData = JsonUtility.FromJson<PlayerData>(newJsonData);
@@ -40,9 +43,6 @@ public class DataHandler : MonoBehaviour
             objectManager.SpawnObject(myobject);        
         }
     }
-
-    
-
 }
 
     
